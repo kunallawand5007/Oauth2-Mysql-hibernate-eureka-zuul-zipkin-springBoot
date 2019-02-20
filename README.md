@@ -69,7 +69,7 @@ Request Body:
 }
 
 
-You can find users.sql file for schema Import Table in Mysql Databases:
+You can find users.sql in auth-service resorce folder file for schema Import Table in Mysql Databases:
 
 Create database First >create database users
 Import sql file >source C:\Users\kunal.lawand\Desktop\test.sql
