@@ -1,0 +1,48 @@
+#SERVICE-NAME
+spring.application.name : zoul-services
+
+#PORT-NO
+server.port : 8765
+
+#Zuul config
+zuul:
+  #ribbon:
+  #  eager-load:
+  #  enabled: true
+  routes:
+    student-service:
+      path: /gateway-5/**
+      sensitiveHeaders:
+      serviceId: student-service
+    auth-service:
+      path: /gateway-1/**
+      sensitiveHeaders:
+      serviceId: auth-service
+    university-service:
+      path: /gateway-2/**
+      sensitiveHeaders:
+      serviceId: university-service     
+
+# Ribbon config
+ribbon:
+  eureka:
+    enabled: true
+    
+    
+     
+ 
+ # Eureka config
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${DISCOVERY_URL:http://localhost:8761}/eureka/
+    registerWithEureka: false
+ 
+
+
+logging:
+  level.org.springframework.security: DEBUG
+
+## Test service mapping
+##zuul.routes.hello.path=/hello/**
+##zuul.routes.hello.serviceId=Beginner-Microservice
